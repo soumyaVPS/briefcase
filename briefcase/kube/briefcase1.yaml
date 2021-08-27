@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: briefcase-server
+  labels:
+    app: briefcase-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: briefcase-server
+  template:
+    metadata:
+      labels:
+         app: briefcase-server
+      spec:
+        containers:
+        -name: briefcase-server
+         image: briefcase-auth-1:latest
+         imagePullPolicy: IfNotPresent
+         ports:
+         -containerPort: 8080
+

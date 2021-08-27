@@ -1,0 +1,12 @@
+FROM node:14
+
+#COPY package*.json ./
+
+RUN npm install
+
+COPY ./service /service
+EXPOSE 8080
+
+WORKDIR /service
+
+CMD [ "node", "index.js" ]
